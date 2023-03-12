@@ -7,7 +7,7 @@ function MusicCard() {
     <Card
   style={{
     width: '18rem',
-    padding:20
+    padding:30
   }}
 >
   <img
@@ -20,7 +20,7 @@ function MusicCard() {
       Music Name
     </CardTitle>
     <CardSubtitle
-      className="mb-2 text-muted"
+      className="mb-4 text-muted"
       tag="h6"
     >
       Music by RkVirus
