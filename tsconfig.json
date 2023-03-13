@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/Components/MusicCard.tsxCardsrc/Components/MusicCard.tsxts/MusicCard.tsx"  ]
 }
