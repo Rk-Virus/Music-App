@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardBody, CardTitle, CardSubtitle, Button, Progress } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardSubtitle, Button, FormGroup, Label, Input } from 'reactstrap';
 import { Pause, SkipForward, SkipBackward, FastForward, Play } from 'react-bootstrap-icons';
 import '../App.css';
 
@@ -10,23 +10,25 @@ function MusicCard() {
   const [currTime, setCurrTime] = useState(0)
   const [duration, setDuration] = useState(audio.duration)
 
- // changing progress
-  audio.addEventListener('timeupdate', ()=>{
+  // changing progress
+  audio.addEventListener('timeupdate', () => {
     console.log(audio.currentTime)
-    let value = (audio.currentTime / audio.duration)*100
+    let value = (audio.currentTime / audio.duration) * 100
     setPointer(value)
     setCurrTime(Math.round(audio.currentTime))
   })
 
-  const playOrPause = (isPlaying: any) =>{
+  // audio control functions 
+  const playOrPause = (isPlaying: any) => {
     setIsPlaying(!isPlaying)
-    if(isPlaying){
+    if (isPlaying) {
       audio.pause()
     }
-    else{
+    else {
       audio.play();
     }
   }
+
   return (
     <>
       <Card
@@ -61,21 +63,20 @@ function MusicCard() {
               {duration}
             </div>
           </div>
-          <Progress
-            max="100"
-            value={pointer}
-          />
-          <audio src="./waterfall.mp3"></audio>
+
+          <input type="range" name="progress" id="progress" min={0} max={100} value={pointer}  className="w-100" />
+          {/* <audio src="./waterfall.mp3"></audio> */}
           <div className='d-flex justify-content-between px-4'>
+
             <Button className='mt-4'>
               <SkipBackward />
             </Button>
             <Button className='mt-4'
-              onClick={()=>{
+              onClick={() => {
                 playOrPause(isPlaying)
               }}
             >
-              {isPlaying?<Pause/>: <Play/>}
+              {isPlaying ? <Pause /> : <Play />}
             </Button>
             <Button className='mt-4'>
               <SkipForward />
