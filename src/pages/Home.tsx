@@ -1,38 +1,36 @@
 import React from 'react'
-import { Nav, NavItem, NavLink,  } from 'reactstrap';
+import Sidebar from '../Components/Sidebar';
 import { Col, Row, Container } from 'react-bootstrap';
-import { HouseExclamation, Search, Heart, PlayBtnFill } from 'react-bootstrap-icons';
+import MusicCard from '../Components/MusicCard';
+import CarouselHero from '../Components/CarouselHero';
+import InfoCard from '../Components/InfoCard';
+
 
 function Home() {
   return (
     <>
+      {/* <Sidebar/> */}
       <Container fluid>
-        <Row >
-          <Col sm={4} style={{backgroundColor: 'rgb(10, 10, 100, 0.2)',paddingTop:100}}>
-            <Nav vertical style={{  height:'100vh',  }}>
-              <NavItem>
-                <NavLink href="#">
-                  <HouseExclamation /> Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">
-                  <Search />Search
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">
-                  <Heart />Favorites
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="#"
-                >
-                  <PlayBtnFill />Playlists
-                </NavLink>
-              </NavItem>
-            </Nav>
+        <Row>
+          <Col sm={3} lg={2} style={{ backgroundColor: 'rgb(10, 10, 100, 0.2)', paddingTop: 100 }}>
+            <Sidebar />
+          </Col>
+          <Col sm={9} lg={10} className="my-2 mx-0">
+            <Row>
+              <CarouselHero />
+            </Row>
+            <Row className="m-2">
+              <h3>Top Trending</h3>
+              {/* <MusicCard /> */}
+              {[1,2,3,4,5,6].map(()=>{
+                return(
+                  <Col>
+                <InfoCard/>
+              </Col>
+                )
+              })}
+              
+            </Row>
           </Col>
         </Row>
       </Container>
