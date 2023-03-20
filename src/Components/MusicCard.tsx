@@ -66,19 +66,19 @@ function MusicCard() {
 
           <input type="range" name="progress" id="progress" min={0} max={100} value={pointer}  className="w-100" />
           {/* <audio src="./waterfall.mp3"></audio> */}
-          <div className='d-flex justify-content-between px-4'>
+          <div className='d-flex justify-content-center px-4'>
 
-            <Button className='mt-4'>
+            <Button className='mt-4 mx-2'>
               <SkipBackward />
             </Button>
-            <Button className='mt-4'
+            <Button className='mt-4 mx-2'
               onClick={() => {
                 playOrPause(isPlaying)
               }}
             >
               {isPlaying ? <Pause /> : <Play />}
             </Button>
-            <Button className='mt-4'>
+            <Button className='mt-4 mx-2'>
               <SkipForward />
             </Button>
           </div>
